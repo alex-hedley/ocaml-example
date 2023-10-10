@@ -1,0 +1,48 @@
+name: Builds, tests & co
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  # schedule:
+  #   # Prime the caches every Monday
+  #   - cron: 0 1 * * MON
+
+permissions: read-all
+
+jobs:
+  build:
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     os:
+    #       - macos-latest
+    #       - ubuntu-latest
+    #       - windows-latest
+    #     ocaml-compiler:
+    #       - "5.1"
+
+    # runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: src
+
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐪 Set-up OCaml
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: ocaml.5.1.0,ocaml-option-mingw
+
+      - name: Install opam
+        run: opam install . --deps-only --with-test
+
+      - name: 🔨 Build
+        run: opam exec -- dune build
+
+      - name: 🧪 Test
+        run: opam exec -- dune runtest
