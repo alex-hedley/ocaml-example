@@ -25,6 +25,16 @@
 
 `dune exec helloworld`
 
+`echo "version = `ocamlformat --version`" > .ocamlformat`
+
+`dune fmt`
+
+## Generate docs
+
+`dune build @doc`
+
+- [local site](../src/helloworld/_build/default/_doc/_html/index.html)
+
 ## opam - OCaml Package Manager
 
 - https://opam.ocaml.org/
