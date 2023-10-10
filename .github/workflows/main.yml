@@ -2,7 +2,11 @@ name: Builds, tests & co
 
 on:
   pull_request:
+    branches: [ main ]
+    paths: src/**
   push:
+    branches: [ main ]
+    paths: src/**
   workflow_dispatch:
   # schedule:
   #   # Prime the caches every Monday
@@ -36,7 +40,8 @@ jobs:
       - name: 🐪 Set-up OCaml
         uses: ocaml/setup-ocaml@v2
         with:
-          ocaml-compiler: ocaml.5.1.0,ocaml-option-mingw
+          ocaml-compiler: "5.0"
+          dune-cache: true
 
       - name: Install opam
         run: opam install . --deps-only --with-test
