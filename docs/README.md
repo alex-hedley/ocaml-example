@@ -1,5 +1,9 @@
 # Docs
 
+- [Testing](TESTING.md)
+
+---
+
 - https://ocaml.org
 - https://ocaml.org/install
 
