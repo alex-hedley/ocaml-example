@@ -12,7 +12,11 @@ on:
   #   # Prime the caches every Monday
   #   - cron: 0 1 * * MON
 
-permissions: read-all
+# permissions: read-all
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -42,6 +46,16 @@ jobs:
         with:
           ocaml-compiler: "5.0"
           dune-cache: true
+
+      # # https://github.com/RedPRL/actions-ocaml
+      # - name: OCaml Actions
+      #   uses: RedPRL/actions-ocaml@v2
+      #   with:
+      #     ocaml-compiler: "5.0"
+      #     with-doc: true
+      #     publish-doc-if-built: true
+      #     # cache-prefix: v1
+      #     github-token: ${{secrets.GITHUB_TOKEN}}
 
       # - name: Install ocamlformat
       #   run: opam install ocamlformat.0.18.0
