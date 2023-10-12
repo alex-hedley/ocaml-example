@@ -11,9 +11,9 @@
  "Alex Hedley"
  "Rob Anderson")
 
-(maintainers "")
+(maintainers "Nobody yet...")
 
-(license LICENSE)
+(license MIT)
 
 (documentation https://alex-hedley.github.io/ocaml-example/)
 
@@ -24,6 +24,7 @@
  (depends
   ocaml
   dune
+  (bisect_ppx (and :with-test (>= "2.5.0")))
   (ounit2 :with-test))
  (tags
   (topics "to describe" your project)))

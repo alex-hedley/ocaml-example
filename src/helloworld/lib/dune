@@ -1,2 +1,4 @@
 (library
- (name helloworld))
+ (name helloworld)
+ (instrumentation
+  (backend bisect_ppx)))
