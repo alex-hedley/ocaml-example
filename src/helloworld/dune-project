@@ -5,21 +5,26 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github alex-hedley/ocaml-example))
 
-(authors "Author Name")
+(authors 
+ "Alex Hedley"
+ "Rob Anderson")
 
-(maintainers "Maintainer Name")
+(maintainers "")
 
 (license LICENSE)
 
-(documentation https://url/to/documentation)
+(documentation https://alex-hedley.github.io/ocaml-example/)
 
 (package
  (name helloworld)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml dune)
+ (depends
+  ocaml
+  dune
+  (ounit2 :with-test))
  (tags
   (topics "to describe" your project)))
 
