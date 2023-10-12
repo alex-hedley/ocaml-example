@@ -68,7 +68,7 @@ jobs:
         run: opam install . --deps-only --with-test
 
       - name: ⬇️ Install opam global deps
-        run: opam install dune merlin ocaml-lsp-server odoc ocamlformat utop dune-release
+        run: opam install odoc ocamlformat dune-release
 
       - name: 🔨 Build
         run: opam exec -- dune build
