@@ -1,6 +1,7 @@
 # Docs
 
 - [Testing](TESTING.md)
+- [Links](LINKS.md)
 
 ---
 
